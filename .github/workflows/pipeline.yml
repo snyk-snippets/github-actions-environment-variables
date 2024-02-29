@@ -1,5 +1,8 @@
 name: Java CI with Maven
 
+env:
+  NAME: 'Snyk Demo'
+
 on:
   push:
     branches: [ "main" ]
@@ -20,3 +23,5 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Print name
+      run: echo "Hello $NAME"
