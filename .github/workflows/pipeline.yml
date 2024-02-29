@@ -1,8 +1,5 @@
 name: Java CI with Maven
 
-env:
-  NAME: 'Snyk Demo'
-
 on:
   push:
     branches: [ "main" ]
