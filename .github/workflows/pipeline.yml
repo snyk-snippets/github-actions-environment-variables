@@ -11,21 +11,15 @@ on:
 
 jobs:
   build:
-    env:
-      JAVA_VERSION: '21'
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-    - name: Set up JDK ${{env.JAVA_VERSION}}
+    - name: Set up JDK 21
       uses: actions/setup-java@v3
       with:
-        java-version: ${{env.JAVA_VERSION}}
+        java-version: '21'
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Print name
-      run: echo "Hello $NAME. $BUILD. Using Java Version $JAVA_VERSION. My API_KEY is ${{secrets.API_KEY}}"
-      env:
-        BUILD: 'We are currently running the Build job'
